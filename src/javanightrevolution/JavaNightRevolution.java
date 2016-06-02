@@ -5,6 +5,7 @@
  */
 package javanightrevolution;
 
+import javafx.scene.layout.GridPane;
 import java.util.*;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 import javafx.stage.FileChooser;
 import javafx.util.converter.FloatStringConverter;
 
+import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 import java.awt.Desktop;
@@ -62,11 +64,40 @@ public class JavaNightRevolution extends Application {
             }
         });
         
+        Button writeFile = new Button();
+        writeFile.setText("Write file");
+        writeFile.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+              FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save calculates result");
+            File file = fileChooser.showSaveDialog(primaryStage);
+            if (file != null) {
+                try {
+                    FileWriter wr = new FileWriter(file);
+                    wr.write(resultField.getText());
+                    wr.close();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+            }
+            }
+        });
+        
+        
         StackPane root = new StackPane();
         
         root.getChildren().add(resultBox);
-        root.getChildren().add(openFile);
-        
+//        root.getChildren().add(openFile);
+         final GridPane inputGridPane = new GridPane();
+          GridPane.setConstraints(openFile, 0, 5);
+        GridPane.setConstraints(writeFile, 1, 5);
+        inputGridPane.setHgap(6);
+        inputGridPane.setVgap(6);
+        inputGridPane.getChildren().addAll(openFile, writeFile);
+        root.getChildren().add(inputGridPane);
+
         Scene scene = new Scene(root, 300, 250);
         
         primaryStage.setTitle("So F Course work!");
