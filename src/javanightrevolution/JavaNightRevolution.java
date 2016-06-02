@@ -55,14 +55,17 @@ public class JavaNightRevolution extends Application {
                 File file = fileChooser.showOpenDialog(primaryStage);
                 if (file != null) {
                     openFile(file);
+                    Float result = calculate();
+                    String stringResult = Float.toString(result);
+                    resultField.setText(stringResult);
                 }
             }
         });
         
         StackPane root = new StackPane();
-        root.getChildren().add(openFile);
-        root.getChildren().add(resultBox);
         
+        root.getChildren().add(resultBox);
+        root.getChildren().add(openFile);
         
         Scene scene = new Scene(root, 300, 250);
         
@@ -101,7 +104,7 @@ public class JavaNightRevolution extends Application {
         }
     }
     
-     private void calculate() {
-         
+     private float calculate() {
+         return 3;
      }
 }
