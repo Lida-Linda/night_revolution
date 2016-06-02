@@ -120,11 +120,8 @@ public class JavaNightRevolution extends Application {
             String line = null;
 
             while ((line = br.readLine()) != null) {
-              String[] values = line.split(",");
-              for (String str : values) {
-                float value = Float.parseFloat(str);//FloatStringConverter(str);
+                float value = Float.parseFloat(line);//FloatStringConverter(str);
                 raw_data.add(value);
-              }
             }
             br.close();
         } catch (IOException ex) {
