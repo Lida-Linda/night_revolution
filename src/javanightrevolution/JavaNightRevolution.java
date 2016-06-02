@@ -40,11 +40,11 @@ public class JavaNightRevolution extends Application {
     public void start(Stage primaryStage) {
         final FileChooser fileChooser = new FileChooser();
 
-//        Label label1 = new Label("Result: ");
-//        TextField resultField = new TextField ();
-//        HBox resultBox = new HBox();
-//        resultBox.getChildren().addAll(label1, resultField);
-//        resultBox.setSpacing(10);
+        Label label1 = new Label("Result: ");
+        TextField resultField = new TextField ();
+        HBox resultBox = new HBox();
+        resultBox.getChildren().addAll(label1, resultField);
+        resultBox.setSpacing(10);
         
         Button openFile = new Button();
         openFile.setText("Open file");
@@ -52,7 +52,6 @@ public class JavaNightRevolution extends Application {
             
             @Override
             public void handle(ActionEvent event) {
-                //System.out.println("Hello World!");
                 File file = fileChooser.showOpenDialog(primaryStage);
                 if (file != null) {
                     openFile(file);
@@ -62,7 +61,7 @@ public class JavaNightRevolution extends Application {
         
         StackPane root = new StackPane();
         root.getChildren().add(openFile);
-//        root.getChildren().add(resultBox);
+        root.getChildren().add(resultBox);
         
         
         Scene scene = new Scene(root, 300, 250);
