@@ -136,6 +136,10 @@ public class JavaNightRevolution extends Application {
     }
     
      private float calculate() {
-         return 3;
+         float result = 0;
+         for (Float current_value : raw_data) {
+             result += current_value;
+         }
+         return result;
      }
 }
