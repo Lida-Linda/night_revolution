@@ -57,8 +57,8 @@ public class JavaNightRevolution extends Application {
                 File file = fileChooser.showOpenDialog(primaryStage);
                 if (file != null) {
                     openFile(file);
-                    Float result = calculate();
-                    String stringResult = Float.toString(result);
+                    Double result = calculate();
+                    String stringResult = Double.toString(result);
                     resultField.setText(stringResult);
                 }
             }
@@ -132,10 +132,10 @@ public class JavaNightRevolution extends Application {
         }
     }
     
-     private float calculate() {
-         float result = 0;
-         for (Float current_value : raw_data) {
-             result += current_value;
+     private double calculate() {
+         double result = 0;
+         for(int i = 0; i < raw_data.size() - 2; i++) {
+             result = Math.log(raw_data.get(i + 1) - raw_data.get(i));
          }
          return result;
      }
