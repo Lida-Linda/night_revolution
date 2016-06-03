@@ -88,10 +88,10 @@ public class JavaNightRevolution extends Application {
         
         StackPane root = new StackPane();
         
+        // show buttons 
         root.getChildren().add(resultBox);
-//        root.getChildren().add(openFile);
-         final GridPane inputGridPane = new GridPane();
-          GridPane.setConstraints(openFile, 0, 5);
+        final GridPane inputGridPane = new GridPane();
+        GridPane.setConstraints(openFile, 0, 5);
         GridPane.setConstraints(writeFile, 1, 5);
         inputGridPane.setHgap(6);
         inputGridPane.setVgap(6);
