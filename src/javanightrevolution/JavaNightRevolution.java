@@ -133,10 +133,22 @@ public class JavaNightRevolution extends Application {
     }
     
      private double calculate() {
-         double result = 0;
-         for(int i = 0; i < raw_data.size() - 2; i++) {
-             result = Math.log(raw_data.get(i + 1) - raw_data.get(i));
-         }
-         return result;
-     }
+        double result[], sum = 0;
+        int r = 0;
+        result =  new double[r];
+        int wind = 25;
+        double pr[]; //масив для прибутковостей
+        int n = 0;
+        pr =  new double[n];
+        for(n = 0; n < raw_data.size() - 2; n++) {
+           pr[n] = Math.log(raw_data.get(n + 1)) - Math.log(raw_data.get(n)); //прибутковості      
+        } 
+        for (int k = 0; k <= raw_data.size() - wind - 1; k++){
+            for (int j = k; j <= raw_data.size() + wind - 1; j++) {
+                sum += pr[j];    
+            }
+            result[k] = (1 / wind) * Math.abs(sum); 
+        } 
+        //return result; як це поміняти??? бо я зробила все масивами =\
+    } 
 }
